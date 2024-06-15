@@ -5,7 +5,6 @@ const donorschema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    // unique: true,
     validate: [validator.isEmail, "email should be valid"],
   },
   name: {
