@@ -6,19 +6,23 @@ const donorschema = new mongoose.Schema({
     type: String,
     required: true,
     validate: [validator.isEmail, "email should be valid"],
+     default: null,
   },
   name: {
     type: String,
     required: [true, "please enter the name"],
+     default: null,
   },
   profileImg: {
     type: String,
+     default: null,
     // required: [true, "profile image is required"],
   },
 
   phone: {
     type: String,
     required: true,
+     default: null,
     validate: {
       validator: function (v) {
         return validator.isMobilePhone(v, "ar-EG");
@@ -29,6 +33,7 @@ const donorschema = new mongoose.Schema({
   bloodType: {
     type: String,
     required: true,
+     default: null,
     enum: {
       values: ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
       message: "blood type is not sutiable",
@@ -37,10 +42,12 @@ const donorschema = new mongoose.Schema({
   city: {
     type: String,
     required: [true, "city is required"],
+     default: null,
   },
 
   message: {
     type: String,
+     default: null,
   },
 });
 donorschema.post("init", (doc) => {
