@@ -24,7 +24,7 @@ exports.resizeImage = catchasync(async (req, res, next) => {
   next();
 });
 exports.getAllPlaces = catchasync(async (req, res, next) => {
-  const places = await place.find(req.body);
+  const places = await place.find(req.body||req.query);
   if (!places) {
     return next(new appError("no places found", 401));
   }
