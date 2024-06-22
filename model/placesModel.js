@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const placeschema = new mongoose.Schema({
-  name: {
+  hospitalname: {
     type: String,
     required: [true, "name is required"],
   },
