@@ -1,7 +1,7 @@
 const need = require("../model/needModel");
 const catchasync = require("../utilis/catchAsync");
 const appError = require("../utilis/appError");
-// const sendEmail = require("../utilis/sendemail");
+const sendEmail = require("../utilis/sendemail");
 
 exports.getAllneed = catchasync(async (req, res, next) => {
   const needs = await need.find();
@@ -19,8 +19,8 @@ exports.addneed = catchasync(async (req, res, next) => {
   if (!newneed) {
     return next(new appError("no needs found", 401));
   }
-//   const message = `hello ${newneed.name}  thank you for donating blood your donate can save human alive
-// please go to ${newneed.hospitalname} at ${newneed.bookingdate}
+  const message = `hello ${newneed.name}  thank you for donating blood your donate can save human alive
+please go to ${newneed.hospitalname} at ${newneed.bookingdate}
 
 
  
@@ -29,13 +29,13 @@ exports.addneed = catchasync(async (req, res, next) => {
 
 
 
-//  with our best wishes 
-//     revive team`;
-//   await sendEmail({
-//     email: newneed.email,
-//     subject: "Appointment booking to donate blood",
-//     message,
-//   });
+ with our best wishes 
+    revive team`;
+  await sendEmail({
+    email: newneed.email,
+    subject: "Appointment booking to donate blood",
+    message,
+  });
 
   res.status(201).json({
     status: "succes",
