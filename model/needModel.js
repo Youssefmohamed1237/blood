@@ -26,16 +26,6 @@ const needschema = new mongoose.Schema({
     },
   },
 
-  // phone: {
-  //   type: String,
-  //   required: true,
-  //   validate: {
-  //     validator: function (v) {
-  //       return validator.isMobilePhone(v, "ar-EG");
-  //     },
-  //     message: "not valid  mobile phone",
-  //   },
-  // },
   bloodType: {
     type: String,
     required: true,
@@ -48,16 +38,7 @@ const needschema = new mongoose.Schema({
     type: String,
     required: [true, "city is required"],
   },
-
-  // message: {
-  //   type: String,
-  // },
 });
-// needschema.post("init", (doc) => {
-//   if (doc.profileImg) {
-//     const imagurl = `${process.env.BASE_URL}/need/${doc.profileImg}`;
-//     doc.profileImg = imagurl;
-//   }
-// });
+
 const need = mongoose.model("need", needschema);
 module.exports = need;
