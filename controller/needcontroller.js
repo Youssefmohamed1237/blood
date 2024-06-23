@@ -15,7 +15,6 @@ exports.getAllneed = catchasync(async (req, res, next) => {
   });
 });
 exports.addneed = catchasync(async (req, res, next) => {
-  console.log(Date.now());
   const newneed = await need.create(req.body);
   if (!newneed) {
     return next(new appError("no needs found", 401));
