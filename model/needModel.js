@@ -16,14 +16,8 @@ const needschema = new mongoose.Schema({
   },
 
   bookingdate: {
-    type: Date,
+    type: String,
     required: [true, "booking date is required"],
-    validate: {
-      validator: function (el) {
-        return el > Date.now();
-      },
-      message: "not suitable date",
-    },
   },
 
   bloodType: {
